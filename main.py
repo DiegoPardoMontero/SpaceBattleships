@@ -6,15 +6,21 @@ pygame.display.set_caption("First Game!") #Crear nombre de la ventana
 
 WHITE = (255, 255, 255)
 
-def main():
+FPS = 60
 
+def draw_window():
+    WIN.fill((WHITE))
+    pygame.display.update()
+
+def main():
+    clock = pygame.time.Clock()
     run = True
     while run:
+        clock.tick(FPS)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
-        WIN.fill((WHITE))
-        pygame.display.update()
+        draw_window()
 
     pygame.quit()
 
